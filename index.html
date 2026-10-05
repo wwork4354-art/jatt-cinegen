@@ -1,123 +1,294 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html xmlns='http://w3.org' xmlns:b='http://google.com' xmlns:data='http://google.com' xmlns:expr='http://google.com'>
+<html lang="en">
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jatt CineGen - Modern AI Hero Studio</title>
-    <b:skin><![CDATA[
-        /* Premium Cyber Dark Look inspired by Grok AI */
-        body, html { margin:0; padding:0; width:100%; height:100%; background:#0b0c10 !important; color:#ffffff; font-family:'Segoe UI', sans-serif; }
-        .header-outer, .sidebar-container, .main-outer, .footer-outer, .quickedit, #navbar { display:none !important; }
-        
-        .hero-wrapper { width:100%; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:30px 20px; box-sizing:border-box; background:radial-gradient(circle at top, #1f2833 0%, #0b0c10 100%); }
-        .top-nav { width:100%; max-width:1200px; display:flex; justify-content:space-between; align-items:center; margin-bottom:40px; }
-        .brand-logo { font-size:32px; font-weight:900; color:#66fcf1; text-transform:uppercase; letter-spacing:3px; text-shadow:0 0 10px rgba(102,252,241,0.5); }
-        
-        .lang-select { background:#1f2833; color:#66fcf1; border:2px solid #66fcf1; padding:10px 15px; font-size:16px; border-radius:6px; cursor:pointer; font-weight:bold; }
-        
-        .main-card { background:rgba(31,40,51,0.6); border:1px solid rgba(102,252,241,0.2); border-radius:16px; width:100%; max-width:850px; padding:40px; box-shadow:0 20px 40px rgba(0,0,0,0.7); backdrop-filter:blur(10px); }
-        .main-card h1 { font-size:40px; text-align:center; margin-bottom:10px; color:#ffffff; }
-        .sub-tag { text-align:center; color:#45a29e; font-size:16px; margin-bottom:30px; }
-        
-        /* Studio Grid Layout */
-        .studio-grid { display:grid; grid-template-columns:1fr 1fr; gap:25px; margin-top:20px; }
-        @media(max-width:768px){ .studio-grid { grid-template-columns:1fr; } }
-        
-        .input-panel { display:flex; flex-direction:column; gap:20px; }
-        .prompt-box { width:100%; height:120px; background:#0b0c10; border:1px solid #45a29e; border-radius:8px; padding:15px; color:#fff; font-size:16px; resize:none; box-sizing:border-box; }
-        .prompt-box:focus { outline:none; border-color:#66fcf1; box-shadow:0 0 8px rgba(102,252,241,0.4); }
-        
-        .options-row { display:flex; gap:15px; }
-        .select-btn { flex:1; background:#1f2833; border:1px solid #45a29e; color:#fff; padding:12px; border-radius:6px; font-weight:bold; cursor:pointer; text-align:center; }
-        .select-btn.active { background:#66fcf1; color:#0b0c10; border-color:#66fcf1; }
-        
-        .upload-zone { border:2px dashed #45a29e; border-radius:8px; padding:20px; text-align:center; color:#c5a059; cursor:pointer; background:rgba(11,12,16,0.5); }
-        .upload-zone:hover { border-color:#66fcf1; color:#66fcf1; }
-        
-        .preview-panel { background:#0b0c10; border:1px solid rgba(102,252,241,0.2); border-radius:8px; display:flex; flex-direction:column; justify-content:center; align-items:center; min-height:300px; position:relative; overflow:hidden; }
-        .preview-video { width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; }
-        
-        .action-container { width:100%; display:flex; justify-content:center; gap:20px; margin-top:35px; }
-        .btn-core { font-size:18px; font-weight:bold; padding:15px 40px; border:none; border-radius:30px; cursor:pointer; text-transform:uppercase; text-decoration:none; transition:all 0.3s ease; text-align:center; }
-        .btn-generate { background:linear-gradient(90deg, #66fcf1, #45a29e); color:#0b0c10; box-shadow:0 5px 15px rgba(102,252,241,0.3); }
-        .btn-generate:hover { transform:translateY(-2px); box-shadow:0 8px 25px rgba(102,252,241,0.6); }
-        .btn-download { background:#1f2833; color:#66fcf1; border:2px solid #66fcf1; }
-        .btn-download:hover { background:#66fcf1; color:#0b0c10; }
-    ]]></b:skin>
+    
+    <!-- Monetag Ads Placement: Paste your main script right below this comment line -->
+    <!-- EXAMPLE: <script src="https://alwingulla.com" data-zone="YOUR_ZONE_ID" async="async"></script> -->
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #0b0c10 !important;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-wrapper {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            background: radial-gradient(circle at top, #1f2833 0%, #0b0c10 100%);
+        }
+
+        .top-nav {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .brand-logo {
+            font-size: 32px;
+            font-weight: 900;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+        }
+
+        .lang-select {
+            background: #1f2833;
+            color: #66fcf1;
+            border: 2px solid #66fcf1;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            outline: none;
+        }
+
+        .main-card {
+            background: rgba(31, 40, 51, 0.6);
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 850px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            box-sizing: border-box;
+        }
+
+        .main-card h1 {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .sub-tag {
+            text-align: center;
+            color: #45a29e;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .studio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .studio-grid { grid-template-columns: 1fr; }
+        }
+
+        .input-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .prompt-box {
+            width: 100%;
+            height: 120px;
+            background: #0b0c10;
+            border: 1px solid #45a29e;
+            border-radius: 8px;
+            padding: 15px;
+            color: #fff;
+            font-size: 16px;
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        .prompt-box:focus {
+            outline: none;
+            border-color: #66fcf1;
+            box-shadow: 0 0 8px rgba(102, 252, 241, 0.4);
+        }
+
+        .options-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .select-btn {
+            flex: 1;
+            background: #1f2833;
+            border: 1px solid #45a29e;
+            color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .select-btn.active {
+            background: #66fcf1;
+            color: #0b0c10;
+            border-color: #66fcf1;
+        }
+
+        .upload-zone {
+            border: 2px dashed #45a29e;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #c5a059;
+            cursor: pointer;
+            background: rgba(11, 12, 16, 0.5);
+        }
+
+        .upload-zone:hover {
+            border-color: #66fcf1;
+            color: #66fcf1;
+        }
+
+        .preview-panel {
+            background: #0b0c10;
+            border: 1px solid rgba(102, 252, 241, 0.2);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .action-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .btn-core {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-generate {
+            background: linear-gradient(90deg, #66fcf1, #45a29e);
+            color: #0b0c10;
+            box-shadow: 0 5px 15px rgba(102, 252, 241, 0.3);
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 252, 241, 0.6);
+        }
+
+        .btn-download {
+            background: #1f2833;
+            color: #66fcf1;
+            border: 2px solid #66fcf1;
+        }
+
+        .btn-download:hover {
+            background: #66fcf1;
+            color: #0b0c10;
+        }
+    </style>
 </head>
 <body>
-    <b:section id='main' showaddelement='no'>
-        <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' visible='true'>
-            <b:includable id='main'>
+    <div class="hero-wrapper">
+        <div class="top-nav">
+            <div class="brand-logo">Jatt CineGen</div>
+            <select class="lang-select" id="langSelect" onchange="switchLanguage()">
+                <option value="en">English Studio</option>
+                <option value="ur">Urdu Studio</option>
+                <option value="hi">Hindi Studio</option>
+                <option value="pa">Punjabi Studio</option>
+                <option value="ar">Arabic Studio</option>
+                <option value="sd">Sindhi Studio</option>
+                <option value="bal">Balochi Studio</option>
+                <option value="ps">Pashto Studio</option>
+                <option value="ta">Tamil Studio</option>
+                <option value="sa">Sanskrit Studio</option>
+                <option value="bn">Bengali Studio</option>
+                <option value="ru">Russian Studio</option>
+                <option value="fa">Farsi Studio</option>
+            </select>
+        </div>
+
+        <div class="main-card">
+            <h1 id="studioTitle">AI Cinematic Studio</h1>
+            <p class="sub-tag" id="studioSub">Create Ultra HD Images and Videos with Character Consistency</p>
             
-                <div class="hero-wrapper">
-                    <!-- Top Navigation Menu -->
-                    <div class="top-nav">
-                        <div class="brand-logo">Jatt CineGen</div>
-                        <select class="lang-select" id="langSelect" onchange="switchLanguage()">
-                            <option value="en">English Studio</option>
-                            <option value="ur">Urdu Studio</option>
-                            <option value="hi">Hindi Studio</option>
-                            <option value="pa">Punjabi Studio</option>
-                            <option value="ar">Arabic Studio</option>
-                            <option value="sd">Sindhi Studio</option>
-                            <option value="bal">Balochi Studio</option>
-                            <option value="ps">Pashto Studio</option>
-                            <option value="ta">Tamil Studio</option>
-                            <option value="sa">Sanskrit Studio</option>
-                            <option value="bn">Bengali Studio</option>
-                            <option value="ru">Russian Studio</option>
-                            <option value="fa">Farsi Studio</option>
+            <div class="studio-grid">
+                <div class="input-panel">
+                    <textarea class="prompt-box" id="promptInput" placeholder="Describe the scene or enter your dialogue prompt here..."></textarea>
+                    
+                    <div class="options-row">
+                        <button class="select-btn active" id="modeImg" onclick="setMode('image')">Image Generator</button>
+                        <button class="select-btn" id="modeVid" onclick="setMode('video')">Video Generator</button>
+                    </div>
+                    
+                    <div class="options-row">
+                        <select class="select-btn" style="color:#fff; background:#1f2833;" id="ratioSelect">
+                            <option value="16:9">Aspect Ratio 16:9 (Landscape)</option>
+                            <option value="9:16">Aspect Ratio 9:16 (Portrait)</option>
+                            <option value="1:1">Aspect Ratio 1:1 (Square)</option>
                         </select>
                     </div>
-
-                    <!-- Main Application Block -->
-                    <div class="main-card">
-                        <h1 id="studioTitle">AI Cinematic Studio</h1>
-                        <p class="sub-tag" id="studioSub">Create Ultra HD Images and Videos with Character Consistency</p>
-                        
-                        <div class="studio-grid">
-                            <!-- Left Controls Configuration -->
-                            <div class="input-panel">
-                                <textarea class="prompt-box" id="promptInput" placeholder="Describe the scene or enter your dialogue prompt here..."></textarea>
-                                
-                                <div class="options-row">
-                                    <button class="select-btn active" id="modeImg" onclick="setMode('image')">Image Generator</button>
-                                    <button class="select-btn" id="modeVid" onclick="setMode('video')">Video Generator</button>
-                                </div>
-                                
-                                <div class="options-row">
-                                    <select class="select-btn" style="color:#fff;" id="ratioSelect">
-                                        <option value="16:9">Aspect Ratio 16:9 (Landscape)</option>
-                                        <option value="9:16">Aspect Ratio 9:16 (Portrait)</option>
-                                        <option value="1:1">Aspect Ratio 1:1 (Square)</option>
-                                    </select>
-                                </div>
-                                
-                                <div class="upload-zone" onclick="triggerUpload()">
-                                    <span id="uploadText">Drag or Upload Reference Image for Video Transformation</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Right Real-time Preview Area -->
-                            <div class="preview-panel">
-                                <video autoplay='autoplay' muted='muted' loop='loop' class="preview-video" id="previewVideo">
-                                    <source src="https://w3schools.com" type="video/mp4" />
-                                </video>
-                            </div>
-                        </div>
-                        
-                        <!-- Core Functional Action Triggers -->
-                        <div class="action-container">
-                            <button class="btn-core btn-generate" id="genBtn" onclick="runGeneration()">Generate Assets</button>
-                            <a href="#" class="btn-core btn-download" id="downBtn" onclick="trackDownload()">Download High-Res</a>
-                        </div>
+                    
+                    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+                        <span id="uploadText">Drag or Upload Reference Image for Video Transformation</span>
+                        <input type="file" id="fileInput" style="display:none;" />
                     </div>
                 </div>
+                
+                <div class="preview-panel">
+                    <video autoplay="autoplay" muted="muted" loop="loop" class="preview-video" id="previewVideo">
+                        <source src="https://w3schools.com" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+            
+            <div class="action-container">
+                <button class="btn-core btn-generate" id="genBtn" onclick="runGeneration()">Generate Assets</button>
+                <a href="#" class="btn-core btn-download" id="downBtn" onclick="trackDownload()">Download High-Res</a>
+            </div>
+        </div>
+    </div>
 
-                <!-- Pure English-Based Language Dictionary and Engine -->
-                <script type='text/javascript'>
-                    const languageConfig = {
-                        en: { title: "AI Cinematic Studio", sub: "Create Ultra HD Images and Videos with Character Consistency", placeholder: "Describe the scene or enter your dialogue prompt here...", upload: "Drag or Upload Reference Image for Video Transformation", gen: "Generate Assets", down: "Download High-Res" },
-                        ur: { title: "Urdu AI Cinematic Studio", sub: "Ultra HD Image aur Video banayein bina shakl kharab kiye", placeholder: "Apna scene ya dialogue yahan likhein...", upload: "Video badalne ke liye reference photo upload karein", gen: "Asset Banayein", down: "High-Res Download" },
-                        hi: { title: "Hindi AI Cinematic Studio", sub: "Ultra HD Image aur Video banayein bina face badle", placeholder: "Apna scene ya dialogue yahan type karein...", upload: "Video badalane ke liye reference photo upload karein", gen: "Asset Banayein", down: "High-Res Download" },
-                        pa: { title: "Punjabi AI Cinematic Studio", sub: "Ultra HD Image te Video banao real character de sath", placeholder: "Apna dialogue ya prompt ethe likho...", upload: "Photo se video banan layi reference image upload karo", gen: "Generate Karo", down: "High-Res Download" },
+    <script type="text/javascript">
+        const languageConfig = {
+            en: { title: "AI Cinematic Studio", sub: "Create Ultra HD Images and Videos with Character Consistency", placeholder: "Describe the scene or enter your dialogue prompt here...", upload: "Drag or Upload Reference Image for Video Transformation", gen: "Generate Assets", down: "Download High-Res" },
